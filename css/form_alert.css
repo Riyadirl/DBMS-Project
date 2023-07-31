@@ -1,0 +1,45 @@
+/* CSS for alert */
+.alert {
+    padding: 10px;
+    background-color: #f44336;
+    /* Red background color */
+    color: #ffffff;
+    /* White text color */
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* CSS for success alert */
+.alert-success {
+    background-color: #4CAF50;
+    /* Green background color */
+}
+
+/* CSS for warning alert */
+.alert-warning {
+    background-color: #FF9800;
+    /* Orange background color */
+}
+
+/* CSS for info alert */
+.alert-info {
+    background-color: #2196F3;
+    /* Blue background color */
+}
+
+/* CSS for close button in the alert */
+.closebtn {
+    color: #ffffff;
+    /* White text color for close button */
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: #000000;
+    /* Black text color on hover */
+}
