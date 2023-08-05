@@ -1,5 +1,5 @@
 <?php
-// Include the database connection file
+//database connection 
 include('./db_connect.php');
 
 // Check if the form is submitted
