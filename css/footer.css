@@ -1,0 +1,22 @@
+/* Apply styles to the footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive styles for the footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px;
+    }
+}

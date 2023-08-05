@@ -3,7 +3,8 @@
 
 <head>
     <title>Rent-Ease</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/header.css">
+    <link rel="stylesheet" type="text/css" href="./css/footer.css">
 </head>
 
 <body>
