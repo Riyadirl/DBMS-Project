@@ -13,8 +13,7 @@ specific requirements and the technologies you choose to use.
 2. **User Registration and Login:**
    - Create registration and login forms for property owners and tenants.
    - Implement PHP scripts to handle user registration and login processes securely.
-   - Hash and salt passwords before storing them in the database.
-   - Use sessions to manage user authentication.
+   
 
 3. **Home Listing and Property Search:**
    - Implement a form for property owners to add new homes to their listings.
