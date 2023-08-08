@@ -13,13 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($check_user_query);
 
     if ($result->num_rows == 1) {
-        // User exists, now verify the password
+        // User exists
         $row = $result->fetch_assoc();
         if (password_verify($password, $row["password"])) {
             // Login successful
-            // Redirect to index.php (main page/home page)
-            header("Location: index.php");
-            exit(); // Make sure to exit after redirection
+
+            exit();
         } else {
             // Incorrect password
             $error_message = "Incorrect password. Please try again.";

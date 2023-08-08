@@ -4,10 +4,11 @@ include('./db_connect.php');
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Get form data
     $username = $_POST["username"];
     $email = $_POST["email"];
-    $password = ($_POST["password"]); // Hash the password
+    $password = ($_POST["password"]);
     $district = $_POST["district"];
     $sub_district = $_POST["sub_district"];
     $area = $_POST["area"];
@@ -18,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         echo '<script>alert("Username already exists. Please choose a different username.");</script>';
     } else {
-        // SQL query to insert user data into the database
+        // insert user data 
         $sql = "INSERT INTO users (username, email, password, district, sub_district, area)
                 VALUES ('$username', '$email', '$password', '$district', '$sub_district', '$area')";
 
         if ($conn->query($sql) === TRUE) {
-            // Registration successful
+
             echo '<script>alert("Registration successful!");</script>';
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
