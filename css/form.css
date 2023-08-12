@@ -1,8 +1,11 @@
 body {
+
     font-family: Arial, sans-serif;
-    background-color: #AFD3E2;
+    background-image: url('https://th.bing.com/th/id/R.3cbc30bdef3b8633380304f4052c8ad1?rik=qnVBybrcaouO8g&pid=ImgRaw&r=0');
     margin: 0;
     padding: 0;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .container {

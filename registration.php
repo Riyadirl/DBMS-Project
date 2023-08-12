@@ -33,41 +33,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Rent-Ease | User Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <link rel="stylesheet" type="text/css" href="./css/form.css">
     <link rel="stylesheet" type="text/css" href="./css/form_alert.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>User Registration</h1>
-        <form action="registration.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-center">User Registration</h1>
+                <form action="registration.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
 
-            <label for="district">District:</label>
-            <input type="text" id="district" name="district" required>
+                    <div class="form-group">
+                        <label for="district">District:</label>
+                        <input type="text" class="form-control" id="district" name="district" required>
+                    </div>
 
-            <label for="sub_district">Sub-District:</label>
-            <input type="text" id="sub_district" name="sub_district" required>
+                    <div class="form-group">
+                        <label for="sub_district">Sub-District:</label>
+                        <input type="text" class="form-control" id="sub_district" name="sub_district" required>
+                    </div>
 
-            <label for="area">Area:</label>
-            <input type="text" id="area" name="area" required>
+                    <div class="form-group">
+                        <label for="area">Area:</label>
+                        <input type="text" class="form-control" id="area" name="area" required>
+                    </div>
 
-            <input type="submit" value="Register">
-        </form>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <p class="mt-3 text-center">Already have an account? <a href="login.php">Login here</a></p>
+            </div>
+        </div>
     </div>
 </body>
 

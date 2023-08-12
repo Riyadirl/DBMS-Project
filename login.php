@@ -38,41 +38,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Rent-Ease | User Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/form.css">
     <style>
-        .container {
-            text-align: center;
-        }
+    .container {
+        text-align: center;
+    }
 
-        .error-message {
-            color: red;
-            font-weight: bold;
-        }
+    .error-message {
+        color: red;
+        font-weight: bold;
+    }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>User Login</h1>
-        <form action="login.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">User Login</h1>
+                <form action="login.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
 
-            <input type="submit" value="Login">
+                    <button type="submit" class="btn btn-primary">Login</button>
 
-            <div class="error-message">
-                <?php
-                // Display error messages if they exist
-                if (isset($error_message)) {
-                    echo $error_message;
-                }
-                ?>
+                    <div class="error-message mt-3">
+                        <?php
+                    // Display error messages if they exist
+                    if (isset($error_message)) {
+                        echo $error_message;
+                    }
+                    ?>
+                    </div>
+                </form>
+                <p class="mt-3 text-center">Don't have an account? <a href="registration.php">Register here</a></p>
             </div>
-        </form>
-        <p>Don't have an account? <a href="registration.php">Register here</a></p>
+        </div>
     </div>
 </body>
 

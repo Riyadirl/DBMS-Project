@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-<h2>Welcome to Rent-Ease!</h2>
+<h2>this is home</h2>
 
 
 <?php include('footer.php'); ?>
