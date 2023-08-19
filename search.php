@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    <?php include('header.php'); ?>
     <div class="container mt-4">
         <h2>Home Search For Dhaka</h2>
         <form method="GET" action="search.php">
@@ -63,6 +63,7 @@
         </form>
 
         <h2>Search Results:</h2>
+        <br> <br>
 
         <?php
         //db connection
@@ -114,13 +115,10 @@
             }
 
             $conn->close();
-        
-
-
         }
         ?>
     </div>
-
+    <?php include 'footer.php'; ?>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
