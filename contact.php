@@ -7,54 +7,54 @@
     <title>Contact Us - Rent-Ease</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    body {
-        background-color: #f8f9fa;
-    }
+        body {
+            background-color: #f8f9fa;
+        }
 
-    .contact-container {
-        margin-top: 100px;
-    }
+        .contact-container {
+            margin-top: 100px;
+        }
 
-    .contact-container h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
+        .contact-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
 
-    .contact-info {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        .contact-info {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .contact-info h4 {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+        .contact-info h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-    .contact-info p {
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
+        .contact-info p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
 
-    .social-links ul {
-        list-style: none;
-        padding: 0;
-    }
+        .social-links ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .social-links li {
-        margin-bottom: 10px;
-    }
+        .social-links li {
+            margin-bottom: 10px;
+        }
 
-    .social-links a {
-        text-decoration: none;
-        color: #007bff;
-        transition: color 0.3s ease;
-    }
+        .social-links a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
 
-    .social-links a:hover {
-        color: #0056b3;
-    }
+        .social-links a:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 
@@ -68,7 +68,7 @@
             <div class="col-md-6">
                 <div class="contact-info">
                     <h4>Contact Information</h4>
-                    <p><strong>Phone:</strong> +1-123-456-7890</p>
+                    <p><strong>Phone:</strong> 01770928271</p>
                 </div>
             </div>
             <div class="col-md-6">

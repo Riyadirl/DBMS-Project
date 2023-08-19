@@ -8,19 +8,19 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    .navbar-custom {
-        background-color: #007bff;
-        /* Change this to your desired background color */
-    }
+        .navbar-custom {
+            background-color: #007bff;
+            /* Change this to your desired background color */
+        }
 
-    .navbar-custom .navbar-brand,
-    .navbar-custom .nav-link {
-        color: #fff;
-    }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #fff;
+        }
 
-    .navbar-custom .nav-link:hover {
-        color: #f8f9fa;
-    }
+        .navbar-custom .nav-link:hover {
+            color: #f8f9fa;
+        }
     </style>
 </head>
 
@@ -29,8 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="home.php">Rent-Ease</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">

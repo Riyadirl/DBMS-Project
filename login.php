@@ -20,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             exit();
         } else {
-            // Incorrect password
+
             $error_message = "Incorrect password. Please try again.";
         }
     } else {
-        // Invalid username
+
         $error_message = "Invalid username. Please try again.";
     }
 
@@ -41,21 +41,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/form.css">
     <style>
-    .container {
-        text-align: center;
-    }
+        .container {
+            text-align: center;
+        }
 
-    .error-message {
-        color: red;
-        font-weight: bold;
-    }
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+        <div class="row justify-content">
+            <div class="col-md-12">
                 <h1 class="text-center">User Login</h1>
                 <form action="login.php" method="post">
                     <div class="form-group">
@@ -72,11 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="error-message mt-3">
                         <?php
-                    // Display error messages if they exist
-                    if (isset($error_message)) {
-                        echo $error_message;
-                    }
-                    ?>
+                        // Display error messages if they exist
+                        if (isset($error_message)) {
+                            echo $error_message;
+                        }
+                        ?>
                     </div>
                 </form>
                 <p class="mt-3 text-center">Don't have an account? <a href="registration.php">Register here</a></p>

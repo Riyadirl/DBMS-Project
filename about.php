@@ -7,14 +7,20 @@
     <title>About Us - Rent-Ease</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
 
-        .container {
-            padding: 60px 0;
-        }
+    .container {
+        padding: 60px;
+    }
+
+
+    .navbar {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
     </style>
 </head>
 
