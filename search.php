@@ -94,8 +94,8 @@
                 echo "<th>Holding Number</th>";
                 echo "<th>Sub District</th>";
                 echo "<th>Area</th>";
-                echo "<th>Category</th>";
                 echo "<th>Rent Amount</th>";
+                echo "<th>View Details</th>"; // Added column for the button
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
@@ -104,8 +104,8 @@
                     echo "<td>" . $row["holding_number"] . "</td>";
                     echo "<td>" . $row["sub_district"] . "</td>";
                     echo "<td>" . $row["area"] . "</td>";
-                    echo "<td>" . $row["category"] . "</td>";
                     echo "<td>" . $row["rent_amount"] . "</td>";
+                    echo "<td><a href='view_details.php?holding_number=" . $row["holding_number"] . "' class='btn btn-primary'>View Details</a></td>";
                     echo "</tr>";
                 }
                 echo "</tbody>";
@@ -114,12 +114,12 @@
                 echo "No results found.";
             }
 
+
             $conn->close();
         }
         ?>
     </div>
     <?php include 'footer.php'; ?>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 

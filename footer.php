@@ -18,7 +18,8 @@
         }
 
         footer {
-            background-color: #343a40;
+
+            background-color: #B9B4C7;
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -29,7 +30,7 @@
 <body>
 
     <div class="container mt-4">
-        <!-- Your content here -->
+
     </div>
 
     <footer>
