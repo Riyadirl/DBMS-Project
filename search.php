@@ -95,7 +95,7 @@
                 echo "<th>Sub District</th>";
                 echo "<th>Area</th>";
                 echo "<th>Rent Amount</th>";
-                echo "<th>View Details</th>"; // Added column for the button
+                echo "<th>View Details</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
@@ -105,7 +105,7 @@
                     echo "<td>" . $row["sub_district"] . "</td>";
                     echo "<td>" . $row["area"] . "</td>";
                     echo "<td>" . $row["rent_amount"] . "</td>";
-                    echo "<td><a href='view_details.php?holding_number=" . $row["holding_number"] . "' class='btn btn-primary'>View Details</a></td>";
+                    echo "<td><a href='view_details.php?holding_number=" . $row["holding_number"] . "' class='btn btn-secondary'>View Details</a></td>";
                     echo "</tr>";
                 }
                 echo "</tbody>";

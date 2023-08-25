@@ -10,7 +10,6 @@
     <style>
     .navbar-custom {
         background-color: #4682b4;
-        /* Change this to your desired background color */
     }
 
     .navbar-custom .navbar-brand,
@@ -20,6 +19,7 @@
 
     .navbar-custom .nav-link:hover {
         color: #f8f9fa;
+
     }
     </style>
 </head>
@@ -49,7 +49,6 @@
         </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
