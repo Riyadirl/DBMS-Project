@@ -2,125 +2,144 @@
 <html>
 
 <head>
-    <title>Rest-Ease Rental Search</title>
-
+    <title>Rent-Ease Search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function getSuggestions(inputField, suggestionList) {
+                var keyword = inputField.val();
+                if (keyword !== '') {
+                    $.ajax({
+                        url: 'get_suggestions.php',
+                        method: 'GET',
+                        data: {
+                            keyword: keyword
+                        },
+                        success: function(response) {
+                            suggestionList.html(response);
+                        }
+                    });
+                } else {
+                    suggestionList.empty();
+                }
+            }
+
+            $('#sub_district').on('input', function() {
+                getSuggestions($(this), $('#sub_district_list'));
+            });
+
+            $('#area').on('input', function() {
+                getSuggestions($(this), $('#area_list'));
+            });
+        });
+    </script>
 </head>
 
-<body>
-    <?php include('header.php'); ?>
-    <div class="container mt-4">
-        <h2>Home Search For Dhaka</h2>
-        <form method="GET" action="search.php">
-            <div class="form-group">
-                <label for="sub_district">Sub District:</label>
-                <select class="form-control" id="sub_district" name="sub_district">
+<body style="background-color: #F6F4F2;">
+    <?php include 'header.php'; ?>
+    <div class="container mt-5">
+        <h1 class="mb-4">Rent-Ease Search</h1>
 
-                    <?php
-                    $subDistricts = array("Motiheel", "Dhanmondi", "Uttara", "Mohammadpur", "badda", "Mirpur", "Gulshan", "Jatrabari");
-                    foreach ($subDistricts as $subDistrict) {
-                        echo "<option value='$subDistrict'>$subDistrict</option>";
-                    }
-                    ?>
-                </select>
+        <form action="search.php" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="sub_district">Sub District:</label>
+                    <input type="text" id="sub_district" name="selected_sub_district" list="sub_district_list">
+                    <datalist id="sub_district_list"></datalist>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="area">Area:</label>
+                    <input type="text" id="area" name="selected_area" list="area_list">
+                    <datalist id="area_list"></datalist>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Categories:</label><br>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="family" name="family" value="Yes">
+                        <label class="form-check-label" for="family">Family</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="male_bachelor" name="male_bachelor" value="Yes">
+                        <label class="form-check-label" for="male_bachelor">Male Bachelor</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="female_bachelor" name="female_bachelor" value="Yes">
+                        <label class="form-check-label" for="female_bachelor">Female Bachelor</label>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="area">Area:</label>
-                <select class="form-control" id="area" name="area">
-
-                    <?php
-                    $areas = array("Ward no. 34", "Ward no. 35", "Ward no. 47", "Ward no. 48", "Ward no. 31", "Ward no. 32", "Ward no. 33", "Ward no. 47", "Ward no. 48", "Digha");
-                    foreach ($areas as $area) {
-                        echo "<option value='$area'>$area</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Category:</label><br>
-                <?php
-                $categories = array("family", "bachelor", "female bachelor");
-                foreach ($categories as $category) {
-                    echo "<div class='form-check form-check-inline'>";
-                    echo "<input class='form-check-input' type='radio' id='$category' name='category' value='$category'>";
-                    echo "<label class='form-check-label' for='$category'>$category</label>";
-                    echo "</div>";
-                }
-                ?>
-            </div>
-
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="min_rent">Min Rent:</label>
-                    <input type="number" class="form-control" id="min_rent" name="min_rent" placeholder="Minimum Rent">
+                    <label for="min_rent">Min Rent Amount:</label>
+                    <input type="number" class="form-control" id="min_rent" name="min_rent">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="max_rent">Max Rent:</label>
-                    <input type="number" class="form-control" id="max_rent" name="max_rent" placeholder="Maximum Rent">
+                    <label for="max_rent">Max Rent Amount:</label>
+                    <input type="number" class="form-control" id="max_rent" name="max_rent">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
-        <h2>Search Results:</h2>
-        <br> <br>
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Holding Number</th>
+                    <th>Rent Amount</th>
+                    <th>View Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 
-        <?php
-        //db connection
-        include('./db_connect.php');
+                include 'header.php';
+                // Include the database connection
+                include('./db_connect.php');
 
+                // Get user inputs
+                $selectedSubDistrict = isset($_GET['selected_sub_district']) ? $_GET['selected_sub_district'] : '';
+                $selectedArea = isset($_GET['selected_area']) ? $_GET['selected_area'] : '';
+                $familyCategory = isset($_GET['family']) ? $_GET['family'] : null;
+                $maleBachelorCategory = isset($_GET['male_bachelor']) ? $_GET['male_bachelor'] : null;
+                $femaleBachelorCategory = isset($_GET['female_bachelor']) ? $_GET['female_bachelor'] : null;
+                $minRent = isset($_GET['min_rent']) ? $_GET['min_rent'] : null;
+                $maxRent = isset($_GET['max_rent']) ? $_GET['max_rent'] : null;
 
-        if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $sub_district = $_GET["sub_district"];
-            $area = $_GET["area"];
-            $category = $_GET["category"];
-            $min_rent = $_GET["min_rent"];
-            $max_rent = $_GET["max_rent"];
+                // Build the SQL query using the input values
+                $query = "SELECT h.*, c.*
+                          FROM homes h
+                          INNER JOIN categories c ON h.holding_number = c.holding_number
+                          WHERE h.district = 'Dhaka'
+                          AND h.sub_district LIKE '%$selectedSubDistrict%'
+                          AND h.area LIKE '%$selectedArea%'
+                          AND (c.family = '$familyCategory' OR c.male_bechelor = '$maleBachelorCategory' OR c.female_bechelor = '$femaleBachelorCategory')
+                          AND h.rent_amount BETWEEN $minRent AND $maxRent";
 
-            // sql query
-            $query = "SELECT h.* FROM homes h
-                  INNER JOIN categories c ON h.holding_number = c.holding_number
-                  WHERE h.sub_district = '$sub_district'
-                  AND h.area = '$area'
-                  AND c.category = '$category'
-                  AND h.rent_amount BETWEEN $min_rent AND $max_rent";
+                // Execute the query
+                $result = mysqli_query($connection, $query);
 
-            //display the results
-            $result = $conn->query($query);
-            if ($result->num_rows > 0) {
-                echo "<table class='table table-bordered'>";
-                echo "<thead>";
-                echo "<tr>";
-                echo "<th>Holding Number</th>";
-                echo "<th>Sub District</th>";
-                echo "<th>Area</th>";
-                echo "<th>Rent Amount</th>";
-                echo "<th>View Details</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["holding_number"] . "</td>";
-                    echo "<td>" . $row["sub_district"] . "</td>";
-                    echo "<td>" . $row["area"] . "</td>";
-                    echo "<td>" . $row["rent_amount"] . "</td>";
-                    echo "<td><a href='view_details.php?holding_number=" . $row["holding_number"] . "' class='btn btn-secondary'>View Details</a></td>";
-                    echo "</tr>";
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['holding_number'] . "</td>";
+                        echo "<td>$" . $row['rent_amount'] . "</td>";
+                        echo "<td><a href='view_details.php?holding_number=" . $row['holding_number'] . "' class='btn btn-info'>View Details</a></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3'>No results found</td></tr>";
                 }
-                echo "</tbody>";
-                echo "</table>";
-            } else {
-                echo "No results found.";
-            }
+
+                // Close the database connection
+                mysqli_close($connection);
 
 
-            $conn->close();
-        }
-        ?>
+                ?>
+            </tbody>
+        </table>
+
     </div>
-    <?php include 'footer.php'; ?>
-
 </body>
 
 </html>

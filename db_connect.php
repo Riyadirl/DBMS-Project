@@ -1,11 +1,13 @@
 <?php
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'rent_ease_demo';
 
+// Create a database connection
+$connection = mysqli_connect($host, $username, $password, $database);
 
-
-
-// Connect to the database
-$conn = mysqli_connect('localhost', 'root', '', 'rent_ease_demo');
-// Check connection
-if (!$conn) {
-    echo 'Connection error: ' . mysqli_connect_error();
+// Check the connection
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
 }
