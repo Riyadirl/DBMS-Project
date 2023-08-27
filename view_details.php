@@ -11,7 +11,7 @@
         <?php
         include('./header.php');
 
-        // Include the database connection
+
         include('./db_connect.php');
 
         // Get the holding number from the URL parameter
@@ -37,7 +37,7 @@
                 echo "<p class='card-text'>Bedrooms: " . $row['bed_room'] . "</p>";
                 echo "<p class='card-text'>Bathrooms: " . $row['wash_room'] . "</p>";
                 echo "<p class='card-text'>Balconies: " . $row['balcony'] . "</p>";
-                echo "<p class='card-text'>Rent Amount: $" . $row['rent_amount'] . "</p>";
+                echo "<p class='card-text'>Rent Amount: " . $row['rent_amount'] . "</p>";
                 echo "<p class='card-text'>District: " . $row['district'] . "</p>";
                 echo "<p class='card-text'>Sub District: " . $row['sub_district'] . "</p>";
                 echo "<p class='card-text'>Area: " . $row['area'] . "</p>";
@@ -50,7 +50,7 @@
             }
         }
 
-        // Close the database connection
+
         mysqli_close($connection);
 
         include('./footer.php');

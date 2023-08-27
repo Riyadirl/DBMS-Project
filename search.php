@@ -37,7 +37,7 @@
 </head>
 
 <body style="background-color: #F6F4F2;">
-    <?php include 'header.php'; ?>
+    <?php include 'nav.php'; ?>
     <div class="container mt-5">
         <h1 class="mb-4">Rent-Ease Search</h1>
 
@@ -92,8 +92,6 @@
             </thead>
             <tbody>
                 <?php
-
-                include 'header.php';
                 // Include the database connection
                 include('./db_connect.php');
 
@@ -108,16 +106,18 @@
 
                 // Build the SQL query using the input values
                 $query = "SELECT h.*, c.*
-                          FROM homes h
-                          INNER JOIN categories c ON h.holding_number = c.holding_number
-                          WHERE h.district = 'Dhaka'
-                          AND h.sub_district LIKE '%$selectedSubDistrict%'
-                          AND h.area LIKE '%$selectedArea%'
-                          AND (c.family = '$familyCategory' OR c.male_bechelor = '$maleBachelorCategory' OR c.female_bechelor = '$femaleBachelorCategory')
-                          AND h.rent_amount BETWEEN $minRent AND $maxRent";
+          FROM homes h
+          INNER JOIN categories c ON h.holding_number = c.holding_number
+          WHERE h.district = 'Dhaka'
+          AND h.sub_district LIKE '%$selectedSubDistrict%'
+          AND h.area LIKE '%$selectedArea%'
+          AND (c.family = '$familyCategory' OR c.male_bechelor = '$maleBachelorCategory' OR c.female_bechelor = '$femaleBachelorCategory')
+          AND h.rent_amount BETWEEN $minRent AND $maxRent";
+
 
                 // Execute the query
                 $result = mysqli_query($connection, $query);
+                //
 
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -131,7 +131,8 @@
                     echo "<tr><td colspan='3'>No results found</td></tr>";
                 }
 
-                // Close the database connection
+                //
+
                 mysqli_close($connection);
 
 
