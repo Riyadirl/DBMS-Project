@@ -4,7 +4,7 @@ include("nav.php");
 include("connection.php");
 
 // Check if the form is submitted
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
     // Get form data
     $username = $_POST["username"];
@@ -19,18 +19,14 @@ if(isset($_POST['submit'])) {
     $run = mysqli_query($conn, $sql);
     $result = mysqli_fetch_assoc($run);
     print_r($result);
-    if($result != NULL)
-    {
+    if ($result != NULL) {
         echo "<script>alert('email already exit')</script>";
-    }
-    else{
+    } else {
         $sql = "INSERT INTO `users`(`username`, `email`, `password`, `district`, `sub_district`, `area`) VALUES ('$username','$email','$password','$district','$sub_district','$area')";
         $run = mysqli_query($conn, $sql);
-        if($run)
-        {
+        if ($run) {
             header("location:login.php");
-        }
-        else{
+        } else {
             echo "<script>alert('try again')</script>";
         }
     }
@@ -52,7 +48,7 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h1 class="text-center">User Registration</h1>
+                <h2 class="text-center">User Registration</h2>
                 <form action="registration.php" method="POST">
                     <div class="form-group">
                         <label for="username">Enter you name:</label>
