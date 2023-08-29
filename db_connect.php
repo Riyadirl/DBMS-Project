@@ -4,10 +4,10 @@ $username = 'root';
 $password = '';
 $database = 'rent_ease_demo';
 
-// Create a database connection
+//  database connection
 $connection = mysqli_connect($host, $username, $password, $database);
 
-// Check the connection
+// Check connection
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
