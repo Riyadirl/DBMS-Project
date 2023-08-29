@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2023 at 10:26 AM
+-- Generation Time: Aug 27, 2023 at 10:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rent_ease_dummy`
+-- Database: `rent_ease_demo`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,21 @@ CREATE TABLE `categories` (
   `male_bechelor` varchar(3) DEFAULT NULL,
   `female_bechelor` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`holding_number`, `family`, `male_bechelor`, `female_bechelor`) VALUES
+(1, 'yes', 'yes', 'yes'),
+(2, 'yes', 'yes', 'no'),
+(3, 'yes', 'yes', 'yes'),
+(4, 'yes', 'yes', 'yes'),
+(5, 'yes', 'yes', 'no'),
+(6, 'yes', 'yes', 'yes'),
+(7, 'yes', 'yes', 'yes'),
+(8, 'yes', 'yes', 'yes'),
+(9, 'yes', 'yes', 'yes');
 
 -- --------------------------------------------------------
 
@@ -63,26 +78,15 @@ CREATE TABLE `homes` (
 --
 
 INSERT INTO `homes` (`holding_number`, `username`, `house_name`, `bed_room`, `wash_room`, `balcony`, `image1`, `image2`, `image3`, `rent_amount`, `district`, `sub_district`, `area`, `status`, `address`) VALUES
-(1, 'admin', 'Cozy Cottage', 2, 1, 1, '11.jpg', '12.jpg', '13.jpg', 120000.00, 'Dhaka', 'Downtown', 'Central Area', 'nr', NULL),
-(2, 'kiraa', 'Spacious Villa', 4, 3, 2, '11.jpg', '12.jpg', '13.jpg', 250000.00, 'Dhaka', 'Suburbia', 'Green Acres', 'nr', NULL),
-(3, 'zxy', 'Modern Apartment', 1, 1, 1, '11.jpg', '12.jpg', '13.jpg', 80000.00, 'Dhaka', 'Uptown', 'Urban Heights', 'nr', NULL),
-(4, 'user104', 'Cosy Studio', 1, 1, 0, 'image1.jpg', 'image2.jpg', 'image3.jpg', 80000.00, 'Dhaka', 'Motijheel', 'Ward no. 34', 'nr', NULL),
-(5, 'user105', 'Luxury Penthouse', 5, 3, 2, 'image1.jpg', 'image2.jpg', 'image3.jpg', 300000.00, 'Dhaka', 'Motijheel', 'Ward no. 35', 'nr', NULL),
-(6, 'user201', 'Charming House', 3, 2, 1, 'image1.jpg', 'image2.jpg', 'image3.jpg', 160000.00, 'Dhaka', 'Dhanmondi', 'Ward no. 47', 'nr', NULL),
-(7, 'user202', 'Elegant Mansion', 5, 4, 3, 'image1.jpg', 'image2.jpg', 'image3.jpg', 450000.00, 'Dhaka', 'Dhanmondi', 'Ward no. 48', 'nr', NULL),
-(11, 'user11', 'House 101', 3, 2, 1, 'image1.jpg', 'image2.jpg', 'image3.jpg', 2000000.00, 'Dhaka', 'Motijheel', 'Ward no. 31', 'nr', NULL),
-(12, 'user12', 'House 102', 4, 3, 2, 'image4.jpg', 'image5.jpg', 'image6.jpg', 2500000.00, 'Dhaka', 'Motijheel', 'Ward no. 32', 'nr', NULL),
-(13, 'user13', 'House 103', 5, 2, 3, 'image7.jpg', 'image8.jpg', 'image9.jpg', 3000000.00, 'Dhaka', 'Motijheel', 'Ward no. 33', 'nr', NULL),
-(14, 'user21', 'House 201', 2, 1, 1, 'image10.jpg', 'image11.jpg', 'image12.jpg', 1500000.00, 'Dhaka', 'Dhanmondi', 'Ward no. 47', 'nr', NULL),
-(15, 'user14', 'House 202', 3, 2, 2, 'image13.jpg', 'image14.jpg', 'image15.jpg', 2000000.00, 'Dhaka', 'Dhanmondi', 'Ward no. 48', 'nr', NULL),
-(16, 'user901', 'House 901', 4, 3, 3, 'image16.jpg', 'image17.jpg', 'image18.jpg', 2500000.00, 'Dhaka', 'Uttara', 'Ward no. 1', 'nr', NULL),
-(17, 'user301', 'House 301', 5, 2, 4, 'image19.jpg', 'image20.jpg', 'image21.jpg', 3000000.00, 'Dhaka', 'Mohammadpur', 'Digha', 'nr', NULL),
-(18, 'user302', 'House 302', 3, 1, 2, 'image22.jpg', 'image23.jpg', 'image24.jpg', 2000000.00, 'Dhaka', 'Mohammadpur', 'Nahata', 'nr', NULL),
-(19, 'user104', 'House 104', 4, 2, 3, 'image25.jpg', 'image26.jpg', 'image27.jpg', 2500000.00, 'Dhaka', 'Motijheel', 'Ward no. 34', 'nr', NULL),
-(20, 'user105', 'House 105', 5, 3, 4, 'image28.jpg', 'image29.jpg', 'image30.jpg', 3000000.00, 'Dhaka', 'Motijheel', 'Ward no. 35', 'nr', NULL),
-(51, 'evan', 'fd', 3, 3, 2, '11.jpg', '12.jpg', '13.jpg', 15000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', 'hazi abdul hamid road no 10'),
-(52, 'evan', 'abc', 3, 2, 3, '11.jpg', '12.jpg', '13.jpg', 15000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', NULL),
-(53, 'evan', 'zyz', 3, 2, 3, '11.jpg', '12.jpg', '13.jpg', 15000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', NULL);
+(1, 'admin', 'afads', 3, 2, 2, 'download (1).jpeg', 'download (1).jpeg', 'download.jpeg', 15000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', 'asdfasdfsaf'),
+(2, 'admin', 'fasfasf', 3, 2, 2, 'home-office-types-of-rooms-in-a-house-1024x576.jpg', 'images (1).jpeg', 'images (2).jpeg', 20000.00, 'Dhaka', 'Badda', 'Notunbazar', 'nr', 'asdfasdfsaf'),
+(3, 'admin', 'wterter', 3, 2, 2, 'images.jpeg', 'images (2).jpeg', 'images (3).jpeg', 15000.00, 'Dhaka', 'Badda', 'Notunbazar', 'nr', 'asdfasdfsaf'),
+(4, 'admin', 'afads', 3, 2, 2, 'download (1).jpeg', 'download (1).jpeg', 'download.jpeg', 20000.00, 'Dhaka', 'Badda', 'Notunbazar', 'nr', 'asdfasdfsaf'),
+(5, 'admin', 'afads', 3, 2, 2, 'images (1).jpeg', 'images (2).jpeg', 'images (3).jpeg', 20000.00, 'Dhaka', 'Badda', 'Notunbazar', 'nr', 'asdfasdfsaf'),
+(6, 'admin', 'afads', 3, 2, 2, 'images (2).jpeg', 'download (1).jpeg', 'download.jpeg', 20000.00, 'Dhaka', 'Badda', 'Notunbazar', 'nr', 'asdfasdfsaf'),
+(7, 'evan', 'afads', 3, 3, 2, 'download (1).jpeg', 'home-office-types-of-rooms-in-a-house-1024x576.jpg', 'images (4).jpeg', 20000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', 'asdfasdfsaf'),
+(8, 'evan', 'afads', 3, 3, 2, 'download (1).jpeg', 'home-office-types-of-rooms-in-a-house-1024x576.jpg', 'home-office-types-of-rooms-in-a-house-1024x576.jpg', 15000.00, 'Dhaka', 'Badda', 'Satarkul', 'nr', 'asdfasdfsaf'),
+(9, 'evan', 'afads', 3, 3, 2, 'download (1).jpeg', 'home-office-types-of-rooms-in-a-house-1024x576.jpg', 'images (1).jpeg', 20000.00, 'Dhaka', 'Gulshan', 'Gulshan1', 'nr', 'asdfasdfsaf');
 
 -- --------------------------------------------------------
 
@@ -130,6 +134,14 @@ CREATE TABLE `reviews` (
   `holding_number` int(11) NOT NULL,
   `review` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`username`, `holding_number`, `review`) VALUES
+('admin', 1, 'Good'),
+('admin', 2, 'Good environment');
 
 -- --------------------------------------------------------
 
@@ -255,8 +267,8 @@ ALTER TABLE `payment`
 -- Indexes for table `rents`
 --
 ALTER TABLE `rents`
-  ADD KEY `fk_users` (`username`),
-  ADD KEY `fk_home` (`holding_number`);
+  ADD KEY `fk_home` (`holding_number`),
+  ADD KEY `fk_u` (`username`);
 
 --
 -- Indexes for table `reviews`
@@ -299,6 +311,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `rents`
   ADD CONSTRAINT `fk_home` FOREIGN KEY (`holding_number`) REFERENCES `homes` (`holding_number`),
+  ADD CONSTRAINT `fk_u` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
   ADD CONSTRAINT `fk_users` FOREIGN KEY (`username`) REFERENCES `users` (`username`);
 
 --

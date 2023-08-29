@@ -1,3 +1,4 @@
+<?php include("nav.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,10 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body>
+<body style="background-color: #dfe6e9">
     <div class="container mt-5">
         <?php
-        include('./header.php');
 
 
         include('./db_connect.php');
@@ -53,9 +53,10 @@
 
         mysqli_close($connection);
 
-        include('./footer.php');
+        
         ?>
     </div>
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

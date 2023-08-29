@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Rest-Ease Rental Search</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #aaa69d;
+        /* Set your desired background color */
+    }
 
-        .container {
-            flex: 1;
-        }
+    main {
+        flex: 1;
+    }
 
-        footer {
-
-            background-color: #B9B4C7;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
+    footer {
+        background-color: #aaa69d;
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }
     </style>
 </head>
 
 <body>
-
-    <div class="container mt-4">
-
-    </div>
+    <main>
+        <!-- Your main content goes here -->
+    </main>
 
     <footer>
-        <p>&copy; <?php echo date('Y'); ?> Rent-Ease. All rights reserved.</p>
+        &copy; 2023 Rent ease. All Rights Reserved.
     </footer>
+</body>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.
+</html>

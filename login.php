@@ -1,34 +1,26 @@
 <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection
-    include('./db_connect.php');
-
-    // Get form data
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // SQL query to check if the user exists
-    $check_user_query = "SELECT * FROM users WHERE username = '$username'";
-    $result = $conn->query($check_user_query);
-
-    if ($result->num_rows == 1) {
-        // User exists
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row["password"])) {
-            // Login successful
-
-            exit();
-        } else {
-
-            $error_message = "Incorrect password. Please try again.";
+include("nav.php");
+include("connection.php");
+if(isset($_POST['submit'])){
+    $user = $_POST['user'];
+    $pass=$_POST['password'];
+    $sql="SELECT username, `password` FROM users Where username = '$user' ";
+    $run = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_assoc($run);
+    if($result != NULL)
+    {
+        if($pass == $result['password'] && $user == $result['username']){
+            session_start();
+            $_SESSION['user'] = $user;
+            header("location:index.php");
         }
-    } else {
-
-        $error_message = "Invalid username. Please try again.";
+        else{
+            $error_message ="Wrong user name or password";
+        }
     }
-
-    $conn->close();
+    else{
+        $error_message ="User Not found. Please register first";
+    }
 }
 ?>
 
@@ -59,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1 class="text-center">User Login</h1>
                 <form action="login.php" method="post">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="user">user:</label>
+                        <input type="text" class="form-control" id="user" name="user" required>
                     </div>
 
                     <div class="form-group">
@@ -68,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <input type="submit" name="submit", value="Login" class="btn btn-primary">
 
                     <div class="error-message mt-3">
                         <?php

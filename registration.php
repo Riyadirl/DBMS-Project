@@ -1,9 +1,10 @@
 <?php
+include("nav.php");
 //database connection 
-include('./db_connect.php');
+include("connection.php");
 
 // Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_POST['submit'])) {
 
     // Get form data
     $username = $_POST["username"];
@@ -14,22 +15,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $area = $_POST["area"];
 
     // Check if the username already exists
-    $check_username_query = "SELECT * FROM users WHERE username='$username'";
-    $result = $conn->query($check_username_query);
-    if ($result->num_rows > 0) {
-        echo '<script>alert("Username already exists. Please choose a different username.");</script>';
-    } else {
-        // insert user data 
-        $sql = "INSERT INTO users (username, email, password, district, sub_district, area)
-                VALUES ('$username', '$email', '$password', '$district', '$sub_district', '$area')";
-
-        if ($conn->query($sql) === TRUE) {
-
-            echo '<script>alert("Registration successful!");</script>';
-            header("Location: login.php");
-            exit();
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+    $sql = "SELECT username FROM users where username = '$username'";
+    $run = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_assoc($run);
+    print_r($result);
+    if($result != NULL)
+    {
+        echo "<script>alert('email already exit')</script>";
+    }
+    else{
+        $sql = "INSERT INTO `users`(`username`, `email`, `password`, `district`, `sub_district`, `area`) VALUES ('$username','$email','$password','$district','$sub_district','$area')";
+        $run = mysqli_query($conn, $sql);
+        if($run)
+        {
+            header("location:login.php");
+        }
+        else{
+            echo "<script>alert('try again')</script>";
         }
     }
 }
@@ -51,9 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <h1 class="text-center">User Registration</h1>
-                <form action="registration.php" method="post">
+                <form action="registration.php" method="POST">
                     <div class="form-group">
-                        <label for="username">Username:</label>
+                        <label for="username">Enter you name:</label>
                         <input type="text" class="form-control" id="username" name="username" required>
                     </div>
 
@@ -82,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" class="form-control" id="area" name="area" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <input type="submit" class="btn btn-primary" value="Register" name="submit">
                 </form>
                 <p class="mt-3 text-center">Already have an account? <a href="login.php">Login here</a></p>
             </div>
